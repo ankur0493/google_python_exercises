@@ -61,7 +61,6 @@ def front_back(a, b):
     half_length_b = (length_b+1)/2
   return a[:half_length_a]+b[:half_length_b]+a[half_length_a:]+b[half_length_b:]
 
-
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
@@ -70,7 +69,6 @@ def test(got, expected):
   else:
     prefix = '  X '
   print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
-
 
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.
