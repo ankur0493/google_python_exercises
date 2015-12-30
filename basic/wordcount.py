@@ -38,13 +38,38 @@ print_words() and print_top().
 """
 
 import sys
-
+import random
 # +++your code here+++
 # Define print_words(filename) and print_top(filename) functions.
 # You could write a helper utility function that reads a file
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
+def build_dict(filename):
+  freq = {}
+  f = open(filename, 'r')
+  for line in f:
+    words = line.split()
+    for k in words:
+      k = k.lower()
+      if k in freq:
+        freq[k] += 1
+      else:
+        freq[k] = 1
+  f.close()
+  return freq
+
+def print_words(filename):
+  words = build_dict(filename)
+  for k in words.keys():
+    print k, words[k]
+
+def print_top(filename):
+  global words 
+  words = build_dict(filename)
+  sorted_words =  sorted(words, key = words.get, reverse=True)
+  for i in range(0,20):
+    print sorted_words[i],' ',words[sorted_words[i]]
 ###
 
 # This basic command line argument parsing code is provided and
